@@ -9,7 +9,7 @@ class TestAlarm extends FlatSpec with Matchers with MockitoSugar {
   def fixture =
     new {
       val sensor: Sensor = mock[Sensor]
-      val alarm = new ExtendedAlarm(sensor);
+      val alarm = new Alarm(sensor);
     }
 
   it should "raise alarm on low pressure" in {
