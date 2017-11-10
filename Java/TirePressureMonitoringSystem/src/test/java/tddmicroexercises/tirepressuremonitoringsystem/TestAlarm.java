@@ -6,7 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class TestAlarm {
 
@@ -33,4 +34,5 @@ public class TestAlarm {
 
         assertEquals(alarmOn, alarm.isAlarmOn());
     }
+
 }

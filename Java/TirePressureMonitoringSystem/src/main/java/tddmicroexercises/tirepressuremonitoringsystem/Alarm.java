@@ -16,15 +16,12 @@ public class Alarm {
         this(new Sensor());
     }
 
-    public void check() {
+    public synchronized void check() {
         double psiPressureValue = sensor.popNextPressurePsiValue();
-
-        if (psiPressureValue < LOW_PRESSURE_THRESHOLD || HIGH_PRESSURE_THRESHOLD < psiPressureValue) {
-            alarmOn = true;
-        }
+        alarmOn = psiPressureValue < LOW_PRESSURE_THRESHOLD || HIGH_PRESSURE_THRESHOLD < psiPressureValue;
     }
 
-    public boolean isAlarmOn() {
+    public synchronized boolean isAlarmOn() {
         return alarmOn;
     }
 }
