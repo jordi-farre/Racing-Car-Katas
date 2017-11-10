@@ -7,7 +7,7 @@ public class Alarm {
 
     Sensor sensor = new Sensor();
 
-    boolean alarmOn = false;
+    private boolean alarmOn = false;
 
     public void check() {
         double psiPressureValue = sensor.popNextPressurePsiValue();
