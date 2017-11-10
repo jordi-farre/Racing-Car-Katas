@@ -26,7 +26,6 @@ public class HtmlTextConverterTest {
 
     private String readFrom(String file) throws IOException, URISyntaxException {
         URL resource = this.getClass().getClassLoader().getResource(file);
-        System.out.println(resource);
         return Files.readAllLines(Paths.get(resource.toURI()))
                 .stream()
                 .collect(Collectors.joining());
