@@ -16,7 +16,7 @@ public class TestAlarm {
     @BeforeEach
     public void initialize() {
         mockedSensor = mock(Sensor.class);
-        alarm = new Alarm() {{ this.sensor = mockedSensor; }};
+        alarm = new Alarm(mockedSensor);
     }
 
     @ParameterizedTest

@@ -6,8 +6,7 @@ public class Alarm {
     private final double HIGH_PRESSURE_THRESHOLD = 21;
 
     private boolean alarmOn = false;
-
-    Sensor sensor;
+    private Sensor sensor;
 
     public Alarm(Sensor sensor) {
         this.sensor = sensor;
