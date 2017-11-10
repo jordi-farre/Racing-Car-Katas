@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 
 public class HtmlTextConverter
 {
-    private String fullFilenameWithPath;
+	private static final String NEW_LINE = "<br />";
+	private String fullFilenameWithPath;
 
     public HtmlTextConverter(String fullFilenameWithPath)
     {
@@ -20,7 +21,7 @@ public class HtmlTextConverter
     public String convertToHtml() throws IOException{
     	return Files.lines(Paths.get(fullFilenameWithPath))
 				.map(StringEscapeUtils::escapeHtml)
-				.collect(Collectors.joining("<br />")) + "<br />";
+				.collect(Collectors.joining(NEW_LINE)) + NEW_LINE;
     }
 
 	public String getFilename() {
