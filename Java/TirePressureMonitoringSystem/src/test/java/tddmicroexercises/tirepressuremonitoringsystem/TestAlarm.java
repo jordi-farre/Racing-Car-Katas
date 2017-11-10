@@ -10,13 +10,13 @@ import static org.mockito.Mockito.*;
 
 public class TestAlarm {
 
-    private Sensor mockedSensor;
+    private Sensor sensor;
     private Alarm alarm;
 
     @BeforeEach
     public void initialize() {
-        mockedSensor = mock(Sensor.class);
-        alarm = new Alarm(mockedSensor);
+        sensor = mock(Sensor.class);
+        alarm = new Alarm(sensor);
     }
 
     @ParameterizedTest
@@ -27,7 +27,7 @@ public class TestAlarm {
             "18, false",
             "19.2, false" })
     public void alarm_raises_when_pressure_outside_threshold(double pressure, boolean alarmOn) {
-        when(mockedSensor.popNextPressurePsiValue()).thenReturn(pressure);
+        when(sensor.popNextPressurePsiValue()).thenReturn(pressure);
 
         alarm.check();
 
