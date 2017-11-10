@@ -3,6 +3,7 @@ package tddmicroexercises.textconvertor;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 public class HtmlTextConverter
 {
@@ -17,16 +18,9 @@ public class HtmlTextConverter
     
 	    try (FileReader fileReader = new FileReader(fullFilenameWithPath);
 			 BufferedReader reader = new BufferedReader(fileReader)) {
-
-			String line = reader.readLine();
-			String html = "";
-			while (line != null) {
-				html += StringEscapeUtils.escapeHtml(line);
-				html += "<br />";
-				line = reader.readLine();
-			}
-
-			return html;
+			return reader.lines()
+					.map(StringEscapeUtils::escapeHtml)
+					.collect(Collectors.joining("<br />")) + "<br />";
 		}
     }
 
