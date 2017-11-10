@@ -3,6 +3,9 @@ package tddmicroexercises.textconvertor;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 public class HtmlTextConverter
@@ -15,13 +18,9 @@ public class HtmlTextConverter
     }
 
     public String convertToHtml() throws IOException{
-    
-	    try (FileReader fileReader = new FileReader(fullFilenameWithPath);
-			 BufferedReader reader = new BufferedReader(fileReader)) {
-			return reader.lines()
-					.map(StringEscapeUtils::escapeHtml)
-					.collect(Collectors.joining("<br />")) + "<br />";
-		}
+    	return Files.lines(Paths.get(fullFilenameWithPath))
+				.map(StringEscapeUtils::escapeHtml)
+				.collect(Collectors.joining("<br />")) + "<br />";
     }
 
 	public String getFilename() {
