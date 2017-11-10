@@ -1,11 +1,11 @@
 package tddmicroexercises.textconvertor;
 
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import org.junit.Test;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HtmlPagesConverterTest {
     @Test
